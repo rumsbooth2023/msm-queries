@@ -13,7 +13,10 @@
   <td><img src = "<%= a_thing.image%>"></td>
   <td><%= a_thing.title%></td>
   <td><%= a_thing.year%></td>
-  <td><%= a_thing.director_id%></td>
+  <td>
+    <% d = a_thing.director_id %>
+    <%= Director.where({ :id => d}).at(0).name %>
+  </td>
   <td>
     <a href = "/movies/<%= a_thing.id%>">
     Show Details

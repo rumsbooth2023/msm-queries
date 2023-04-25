@@ -33,7 +33,7 @@
 
   <dt> Director </dt>
   <dd>
-    <%= @details.director_id %>
+    <%= Director.where({ :id => @details.director_id}).at(0).name %>
   </dd>
 
   <dt> Created at </dt>

@@ -38,3 +38,36 @@
 </dl>
 
 <hr>
+
+<table border="1">
+<th> Title </th>
+<th> Year </th>
+<th> Director </th>
+<th> Character Name </th>
+<th> Details </th>
+<%= @characters.all.each do |a_thing| %>
+<tr>
+  <td>
+    <% a = a_thing.movie_id%>
+    <%= Movie.where({ :id => a}).at(0).title%>
+  </td>
+  <td>
+    <% b = a_thing.movie_id%>
+    <%= Movie.where({ :id => a}).at(0).year%>
+  </td>
+  <td>
+    <% d = a_thing.movie_id %>
+    <%= Director.where({ :id => d}).at(0).name %>
+  </td>
+  <td>
+    <%= a_thing.name %>
+  </td>
+
+  <td>
+    <a href = "/movies/<%= a_thing.movie_id%>">
+    Show Details
+    </a>
+  </td>
+</tr
+<% end %>
+</table>
