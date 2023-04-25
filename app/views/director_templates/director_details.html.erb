@@ -36,3 +36,32 @@
     <%= time_ago_in_words(@details.updated_at) %>
   </dd>
 </dl>
+
+<hr>
+
+<hr>
+
+<h2>Filmography</h2>
+
+<table border="1">
+<th> ID </th>
+<th> Image </th>
+<th> Title </th>
+<th> Year </th>
+<th> Director </th>
+<th> Bio </th>
+<%= @filmography.all.each do |a_thing| %>
+<tr>
+  <td><%= a_thing.id%></td>
+  <td><img src = "<%= a_thing.image%>"></td>
+  <td><%= a_thing.title%></td>
+  <td><%= a_thing.year%></td>
+  <td><%= a_thing.director_id%></td>
+  <td>
+    <a href = "/movies/<%= a_thing.id%>">
+    Show Details
+    </a>
+  </td>
+</tr
+<% end %>
+</table>
